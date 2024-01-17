@@ -17,6 +17,13 @@ function init(){
         }
     });
 
+    window.addEventListener('resize', ()=>{
+        if (window.screen.width >= 1024) {
+            menuDiv.style.visibility = "hidden"
+            menuBtn.innerHTML = "Öppna meny"
+        }
+    })
+
 } // Slut init
 window.addEventListener('load', init);
 // --------------------------------------------------
