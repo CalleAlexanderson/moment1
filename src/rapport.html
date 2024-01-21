@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/content.css">
     <script src="js/menu_script.js" type="module"></script>
     <title>Rapport</title>
 </head>
+
 <body>
     <header>
         <a href="index.html" aria-label="Gå tillbaks till startsidan" id="to_index"><span>Start</span></a>
@@ -30,5 +33,36 @@
             </nav>
         </div>
     </header>
+    <main id="rapport_main">
+        <h2>Arbetsprocess</h2>
+        <p>Jag har använt mig av npm och parcel för denna uppgift. Jag började med att installera npm till katalogen med
+            "npm init -y" för att få ett blankt projekt, sedan isntallerade jag parcel med "npm install parcel
+            --save-dev". <br> <br> I filen package.json som generades skrev jag in de kommande som visades i filmen och
+            bekantade
+            mig med funktionen av dessa, "start": "parcel", "build": "parcel build" som jag förstått är dessa inbyggda
+            kommand som jag sedan har gett en egen kallelse metod för i detta fall "npm run start" för start och "npm
+            run build" för build. <br> <br> Efter jag gjorde detta borde jag ha gjort en first commit till git men jag
+            var för insatt i att skapa menyn för navigation så jag glömde att göra det tills jag var en bit in i det
+            arbetet. Jag
+            skapade en .gitignore fil som ignorerade node_modules katalogen, parcel cache katalogen och dist katalogen
+            då de skapas igen på den dator som repot kopieras till. <br> <br> Efter min första commit gjorde jag klart
+            navigationen och började läsa igen parcel docs för att hitta ett sätt att uppfylla detta krav i uppgiften:
+            "Bakåtkompabilitet i genererade filer, så att exempelvis JavaScript transpileras så att dessa fungerar i så
+            många webbläsare som möjligt." Det jag hittade var "browserlist" och detta läste jag om och testade olika
+            värden för att se vilket som gav högst procent inkluderade webbläsaren och det värde jag kom fram till var
+            "&lt;0%" vilket inte uppnådde 100% (uppnådde 98.6%, testade här
+            <a href="https://browsersl.ist/#q=%3E0%25" target="_blank">Browserslist
+            </a>) men jag hittade inget självklart sätt att
+            få det högre.
+            <br> <br> Efter jag uppfyllt detta gick jag tillbaka till docs för att hitta ett sätt att omvandla bilder,
+            jag hittade ett sätt att använda js och ett sätt att använda html och jag tyckte html var mycket lättare så
+            jag använde den samt skapade en sharp.config.json fil för att ge en kvalite på alla bilder utan att behöva
+            skriva på varenda en. Jag satte kvaliten genom att lägga in alla bilderna och sedan ändra tills jag var
+            tillräckligt nöjd med storlek och utseende, resultatet blev en kvalite på 38 på bilderna. På alla bilder
+            satte jag också att de skulle konverteras till AVIF och WebP och sedan gav jag de en width på 300px. 
+            <br> <br> Jag använde netlify för publicering där jag använde npm run build som build command och dist som publish directory. 
+        </p>
+    </main>
 </body>
+
 </html>

@@ -1,0 +1,54 @@
+body{
+    max-width: 1600px;
+    margin: auto;
+    line-height: 1.2rem;
+}
+
+main{
+    background-color: rgb(0, 145, 145);
+    color: whitesmoke;
+    text-shadow: 1px 1px 2px black;
+    border-radius: 10px;
+}
+
+a{
+    color: aqua;
+    text-shadow: none;
+}
+
+#index_main, #rapport_main{
+    width: max(300px, 80%);
+    margin: auto;
+}
+
+#index_main *, #rapport_main *{
+    margin: 20px 0;
+    padding: 5px;
+}
+
+h2{
+    text-align: center;
+}
+
+#foton_main{
+    display: flex;
+    flex-direction: column;
+}
+
+#foton_main img{
+    margin: 10px auto;
+    display: block;
+}
+
+@media screen and (min-width: 601px) {
+    #foton_main{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    #foton_main{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
