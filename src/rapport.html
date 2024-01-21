@@ -59,8 +59,10 @@
             jag använde den samt skapade en sharp.config.json fil för att ge en kvalite på alla bilder utan att behöva
             skriva på varenda en. Jag satte kvaliten genom att lägga in alla bilderna och sedan ändra tills jag var
             tillräckligt nöjd med storlek och utseende, resultatet blev en kvalite på 38 på bilderna. På alla bilder
-            satte jag också att de skulle konverteras till AVIF och WebP och sedan gav jag de en width på 300px. 
-            <br> <br> Jag använde netlify för publicering där jag använde npm run build som build command och dist som publish directory. 
+            satte jag också att de skulle konverteras till AVIF och WebP och sedan gav jag de en width på 300px.
+            <br> <br> Jag använde netlify för publicering där jag använde npm run build som build command och dist som
+            publish directory. Jag hade en error när jag använda build kommandet så jag sökte upp error meddelandet på
+            webben och hittade att "main": inte skulle vara med i package.json filen i parcel 2 så jag tog bort den.
         </p>
     </main>
 </body>
