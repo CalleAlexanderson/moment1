@@ -8,6 +8,9 @@ function init() {
 window.addEventListener('load', init);
 // --------------------------------------------------
 
+function name(params) {
+
+}
 
 async function getData() {
     try {
@@ -22,15 +25,23 @@ async function getData() {
 async function makeTable() {
     console.log(data);
 
-    let main = document.getElementById('course_main');
-    let table = document.createElement('table');
-
-
     for (let index = 0; index < data.length; index++) {
-        console.log(data[index].code);
-        console.log(data[index].coursename);
-        console.log(data[index].progression);
+        // skapar tablerows med datan från json filen
+        let tableRow = document.createElement('tr');
+        let td1 = document.createElement('td');
+        let td2 = document.createElement('td');
+        let td3 = document.createElement('td');
+        
+        td1.appendChild(document.createTextNode(data[index].code));
+        tableRow.appendChild(td1);
+
+        td2.appendChild(document.createTextNode(data[index].coursename));
+        tableRow.appendChild(td2);
+
+        td3.appendChild(document.createTextNode(data[index].progression));
+        tableRow.appendChild(td3);
+
+        document.getElementById('table_body').appendChild(tableRow);
     }
 
-    main.appendChild(table);
 }

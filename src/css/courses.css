@@ -1,0 +1,26 @@
+table{
+    background-color: white;
+    color: black;
+    text-shadow: none;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th{
+    padding: 10px 0;
+}
+
+th{
+    text-align: left;
+    text-decoration: underline;
+}
+
+/* sökte upp ett sätt att hitta ett specifikt child och hittade lösning här: https://css-tricks.com/almanac/selectors/n/nth-child/ */
+td:nth-child(3) {
+    padding: 0 30px;
+}
+
+tr{
+    border-top: 1px solid rgb(200, 200, 200);
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
