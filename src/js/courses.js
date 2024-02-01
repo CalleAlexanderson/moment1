@@ -1,5 +1,7 @@
 // Globala konstanter och variabler
 let data;
+let rows = [];
+let setup = true;
 
 //används för att kolla vilken typ av sortering som görs på tabellen
 let aToZ1 = true;
@@ -20,7 +22,7 @@ function init() {
     document.getElementById('course_prog').addEventListener('click', () => {
         sortTable("prog");
     });
-
+    
     document.getElementById('search').addEventListener('keyup', search)
 } // Slut init
 window.addEventListener('load', init);
@@ -29,22 +31,27 @@ window.addEventListener('load', init);
 
 function search() {
 
-    let trs = document.getElementsByTagName('tr');
+    // searchedtable uppdateras inte
+
     let input = document.getElementById('search').value.toLowerCase();
-    let searched = []
+    let searched = [];
     let tempDataSearch = data.slice();
     let searchedTable = [];
 
-    for (let index = 0; index < trs.length; index++) {
+    console.log(input);
+    for (let index = 0; index < tempDataSearch.length; index++) {
         if (index != 0) {
-            let h = trs[index].innerText.replaceAll('\t', ' ');
+            // tar bort \t och ändrar till mellanrum
+            console.log(rows);
+            let h = rows[index].innerText.replaceAll('\t', ' ');
+            //sätter stringen till lowercase
             h = h.toLowerCase();
             // console.log(h);
             let q = h.search(input);
+            // console.log(q);
 
             if (q != -1) {
-                let g = trs[index].innerText.replaceAll('\t', ' ')
-                searched.push(g);
+                searched.push(rows[index].innerText);
             }
         }
     }
@@ -52,12 +59,14 @@ function search() {
     for (let index = 0; index < tempDataSearch.length; index++) {
 
         for (let i = 0; i < searched.length; i++) {
+
             if (searched[i].substring(0, 6) == tempDataSearch[index].code) {
                 searchedTable.push(tempDataSearch[index]);
             }
+
         }
     }
-    console.log(searchedTable);
+
     makeTable(searchedTable);
 }
 
@@ -121,7 +130,6 @@ async function getData() {
 async function makeTable(tableData) {
     document.getElementById('table_body').innerHTML = "";
 
-
     for (let index = 0; index < tableData.length; index++) {
         // skapar tablerows med datan från json filen
         let tableRow = document.createElement('tr');
@@ -139,6 +147,14 @@ async function makeTable(tableData) {
         tableRow.appendChild(td3);
 
         document.getElementById('table_body').appendChild(tableRow);
+    }
+
+    if (setup == true) {
+        let trs = document.getElementsByTagName('tr');
+        for (let index = 0; index < trs.length; index++) {
+            rows.push(trs[index]);
+        }
+        setup = false
     }
 
 }
