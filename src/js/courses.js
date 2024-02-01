@@ -20,9 +20,46 @@ function init() {
     document.getElementById('course_prog').addEventListener('click', () => {
         sortTable("prog");
     });
+
+    document.getElementById('search').addEventListener('keyup', search)
 } // Slut init
 window.addEventListener('load', init);
 // --------------------------------------------------
+
+
+function search() {
+
+    let trs = document.getElementsByTagName('tr');
+    let input = document.getElementById('search').value.toLowerCase();
+    let searched = []
+    let tempDataSearch = data.slice();
+    let searchedTable = [];
+
+    for (let index = 0; index < trs.length; index++) {
+        if (index != 0) {
+            let h = trs[index].innerText.replaceAll('\t', ' ');
+            h = h.toLowerCase();
+            // console.log(h);
+            let q = h.search(input);
+
+            if (q != -1) {
+                let g = trs[index].innerText.replaceAll('\t', ' ')
+                searched.push(g);
+            }
+        }
+    }
+
+    for (let index = 0; index < tempDataSearch.length; index++) {
+
+        for (let i = 0; i < searched.length; i++) {
+            if (searched[i].substring(0, 6) == tempDataSearch[index].code) {
+                searchedTable.push(tempDataSearch[index]);
+            }
+        }
+    }
+    console.log(searchedTable);
+    makeTable(searchedTable);
+}
 
 function sortTable(action) {
     let tempData = data.slice();
@@ -37,7 +74,6 @@ function sortTable(action) {
                 tempData = tempData.sort((a, b) => (a.code > b.code) ? 1 : -1)
                 aToZ1 = false;
             }
-            makeTable(tempData);
             break;
 
         case "name":
@@ -48,7 +84,6 @@ function sortTable(action) {
                 tempData = tempData.sort((a, b) => (a.coursename > b.coursename) ? 1 : -1)
                 aToZ2 = false;
             }
-            makeTable(tempData);
             break;
 
         case "prog":
@@ -59,12 +94,13 @@ function sortTable(action) {
                 tempData = tempData.sort((a, b) => (a.progression > b.progression) ? 1 : -1)
                 aToZ3 = false;
             }
-            makeTable(tempData);
             break;
 
         default:
             break;
     }
+    console.log(tempData);
+    makeTable(tempData);
 }
 
 async function getData() {
