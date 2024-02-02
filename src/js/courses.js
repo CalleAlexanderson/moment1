@@ -46,6 +46,7 @@ function search() {
             let h = rows[index].innerText.replaceAll('\t', ' ');
             //sätter stringen till lowercase
             h = h.toLowerCase();
+            h = h.substring(0, h.length -1)
             // console.log(h);
             let q = h.search(input);
             // console.log(q);
