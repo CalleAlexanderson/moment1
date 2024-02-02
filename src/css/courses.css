@@ -1,0 +1,52 @@
+table {
+    background-color: white;
+    color: black;
+    text-shadow: none;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+td,
+th {
+    padding: 10px 0;
+}
+
+thead tr {
+    border-top: none;
+}
+
+th {
+    text-align: left;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+th:nth-child(3) {
+    text-align: right;
+}
+
+/* sökte upp ett sätt att hitta ett specifikt child och hittade lösning här: https://css-tricks.com/almanac/selectors/n/nth-child/ */
+td:nth-child(3) {
+    padding: 0 30px;
+    text-align: right;
+}
+
+tr {
+    border-top: 1px solid rgb(200, 200, 200);
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+main {
+    background-color: white;
+    color: black;
+    text-shadow: none;
+    margin: 10px;
+}
+
+#search {
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+    font-size: 1.2rem;
+}

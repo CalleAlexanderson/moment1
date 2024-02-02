@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/content.css">
+    <link rel="stylesheet" href="css/courses.css">
     <script src="js/menu_script.js" type="module"></script>
-    <title>Startsida</title>
+    <script src="js/courses.js" type="module"></script>
+    <title>Kurser</title>
 </head>
-<!-- c:\Users\calle\Desktop\Webb\Miun Program\Front-end baserad webbutveckling\moment1 -->
 
 <body>
     <header>
         <a href="index.html" aria-label="Gå tillbaks till startsidan" id="to_index"><span>Start</span></a>
-        <h1>Startsida</h1>
+        <h1>Kurser</h1>
         <button type="button" id="menu_btn">Öppna meny</button>
         <div id="pc_nav">
             <nav>
@@ -36,21 +37,21 @@
             </nav>
         </div>
     </header>
-    <main id="index_main">
-        <h2>Info om uppgiften</h2>
-        <p>Jag ska skapa en webbsida som använder npm och parcel för att automatisera olika delar av byggandet av en
-            webbplats samt se till att den är kompatibel med så mpnga webbläsare som möjligt, det som ska göras:</p>
-        <ul>
-            <li>Minifiering av CSS.</li>
-            <li>Transpilering och minifiering av JavaScript.</li>
-            <li>Minifiering av HTML.</li>
-            <li>Optimering av bilder - skall ske automatiskt vid uppdatering av bilder. Använd moderna bildformat
-                och passande inställningar för dessa.</li>
-            <li>Bakåtkompabilitet i genererade filer, så att exempelvis JavaScript transpileras så att dessa fungerar i
-                så många webbläsare som möjligt.</li>
-            <li>Kopiering av arbetsfiler till mapp för publicering med optimerade filer.
-            </li>
-        </ul>
+    <main id="course_main">
+        <label for="search">Sök:</label>
+        <input type="search" id="search" placeholder="Sök efter kurskod eller kursnamn" autocomplete="off">
+        <table>
+            <thead>
+                <tr>
+                    <th id="course_code">Kurskod</th>
+                    <th id="course_name">Namn</th>
+                    <th id="course_prog">Progression</th>
+                </tr>
+            </thead>
+            <tbody id="table_body">
+
+            </tbody>
+        </table>
     </main>
 </body>
 
